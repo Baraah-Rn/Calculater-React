@@ -1,11 +1,11 @@
+/* eslint-disable default-case */
 import { useReducer } from "react";
-import "./App.css";
 import DigitButton from "./DigitButton";
 import { ACTIONS } from "./Actions";
 import OperationButton from "./OperationButton";
+import "./App.css";
 
 function reducer(state, { type, payload }) {
-  // eslint-disable-next-line default-case
   switch (type) {
     case ACTIONS.ADD_DIGIT:
       if (state.overwrite) {
@@ -15,15 +15,16 @@ function reducer(state, { type, payload }) {
           overwrite: false,
         };
       }
-      if (payload.digit === "." && state.currentOperand.includes(".")) {
-        return state;
-      }
       if (payload.digit === "0" && state.currentOperand === "0") {
         return state;
       }
+      if (payload.digit === "." && state.currentOperand.includes(".")) {
+        return state;
+      }
+
       return {
         ...state,
-        currentOperand: `${state.currentOperand || ""} ${payload.digit}`,
+        currentOperand: `${state.currentOperand || ""}${payload.digit}`,
       };
 
     case ACTIONS.CHOOSE_OPERATION:
@@ -70,10 +71,10 @@ function reducer(state, { type, payload }) {
           currentOperand: null,
         };
       }
-      return{
+      return {
         ...state,
-        currentOperand: state.currentOperand.slice(0, -1)
-      }
+        currentOperand: state.currentOperand.slice(0, -1),
+      };
 
     case ACTIONS.EVALUATE:
       if (
@@ -100,7 +101,6 @@ function evaluate({ currentOperand, previousOperand, operation }) {
   if (isNaN(prev) || isNaN(current)) return "";
 
   let computation = "";
-  // eslint-disable-next-line default-case
   switch (operation) {
     case "+":
       computation = prev + current;
@@ -119,16 +119,15 @@ function evaluate({ currentOperand, previousOperand, operation }) {
 }
 
 const INTEGER_FORMATTER = new Intl.NumberFormat("en-us", {
-  maximumFractionDigits :0 ,
-})
-function formatOperand(operand){
-  if(operand == null )return
-  const [integer,decimal] =operand.split('.')
+  maximumFractionDigits: 0,
+});
+function formatOperand(operand) {
+  if (operand == null) return;
+  const [integer, decimal] = operand.split(".");
 
-  if (decimal==null)return INTEGER_FORMATTER.format(integer)
-  return `${INTEGER_FORMATTER.format(integer)}.${decimal}`
+  if (decimal == null) return INTEGER_FORMATTER.format(integer);
+  return `${INTEGER_FORMATTER.format(integer)}.${decimal}`;
 }
-
 
 function App() {
   const [{ currentOperand, previousOperand, operation }, dispatch] = useReducer(
@@ -140,9 +139,9 @@ function App() {
     <div className="calculator-grid">
       <div className="output">
         <div className="previous-operand">
-          { formatOperand(previousOperand)} {operation}
+          {formatOperand(previousOperand)} {operation}
         </div>
-        <div className="current-operand">{ formatOperand(currentOperand)}</div>
+        <div className="current-operand">{formatOperand(currentOperand)}</div>
       </div>
 
       <button
@@ -153,9 +152,13 @@ function App() {
       >
         AC
       </button>
-      <button  onClick={() => {
+      <button
+        onClick={() => {
           dispatch({ type: ACTIONS.DELETE_DIGIT });
-        }}>DEL</button>
+        }}
+      >
+        DEL
+      </button>
       <OperationButton operation="÷" dispatch={dispatch} />
       <DigitButton digit="1" dispatch={dispatch} />
       <DigitButton digit="2" dispatch={dispatch} />

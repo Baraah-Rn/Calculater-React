@@ -42,7 +42,6 @@ body{
   align-items: flex-end;
   justify-content: space-around;
   padding: 1.75rem;
-  height: inherit;
   word-wrap: break-word;
   word-break: break-all;
 }
