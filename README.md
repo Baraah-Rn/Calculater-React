@@ -6,7 +6,7 @@ This project was bootstrapped with [Create React App](https://github.com/faceboo
 
 I tried to  build an calculator without using any library to handle the operation 
 The app is responsive to all screen size. 
-have fun to try it :)
+have fun to try it in : https://chic-semolina-0c7c70.netlify.app/
 
 ## Available Scripts
 
