@@ -1,6 +1,9 @@
 # My Calculater
 
 This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
+
+![Cal](https://user-images.githubusercontent.com/101180840/211558786-1d76edef-7b44-409a-849d-a3f894eaf249.png)
+
 I tried to  build an calculator without using any library to handle the operation 
 The app is responsive to all screen size. 
 have fun to try it :)
