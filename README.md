@@ -2,7 +2,7 @@
 
 This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
 
-![Cal](https://user-images.githubusercontent.com/101180840/211558786-1d76edef-7b44-409a-849d-a3f894eaf249.png)
+![Screenshot 2023-01-10 140755](https://user-images.githubusercontent.com/101180840/211559853-b236057f-5ab7-4382-ad6f-b9bf238d8072.png)
 
 I tried to  build an calculator without using any library to handle the operation 
 The app is responsive to all screen size. 
